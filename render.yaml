@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: shortvid-ffprobe
+    runtime: docker
+    dockerfilePath: ./services/ffprobe/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: FFPROBE_API_KEY
+        generateValue: true
+      - key: FFPROBE_TIMEOUT_MS
+        value: "20000"
